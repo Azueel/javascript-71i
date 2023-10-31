@@ -2,6 +2,8 @@ const validarUsuario = document.querySelector('#validarUsuario');
 
 validarUsuario.addEventListener('submit', validarLogin);
 
+let usuarios = JSON.parse(localStorage.getItem('usuarios'));
+
 function validarLogin(e) {
 	e.preventDefault();
 
@@ -18,8 +20,20 @@ function validarLogin(e) {
 		mostrarError('Email invalido');
 	}
 
-	//analizar si el email ingresado existe en la "base de datos"
-	//si existe ver si el email encontrado coincide con la contraseña ingresada
+	//comprobar si el email ya esta registrado
+	const existeEmail = usuarios.find(function (usuario) {
+		return usuario.email === email;
+	});
+
+	if (existeEmail !== undefined) {
+		if (existeEmail.password === password) {
+			console.log('logueado');
+		} else {
+			mostrarError('contraseña incorrecta');
+		}
+	} else {
+		mostrarError('correo no existe');
+	}
 }
 
 function mostrarError(mensaje) {
