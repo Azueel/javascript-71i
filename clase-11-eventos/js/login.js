@@ -27,7 +27,12 @@ function validarLogin(e) {
 
 	if (existeEmail !== undefined) {
 		if (existeEmail.password === password) {
-			console.log('logueado');
+			//si se cumple el usuario puede loguearse
+			if (existeEmail.id == 1698276594011) {
+				location.href = 'admin.html';
+			} else {
+				location.href = 'home.html';
+			}
 		} else {
 			mostrarError('contraseña incorrecta');
 		}

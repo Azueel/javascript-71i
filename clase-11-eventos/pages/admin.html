@@ -90,6 +90,7 @@
                                 <th>Nombre</th>
                                 <th>Precio</th>
                                 <th>Descripcion</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody id="tablaProductos"></tbody>
@@ -97,7 +98,7 @@
                 </div>
             </div>
            
-            <!-- Modal -->
+            <!-- Modal Crear Producto -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                 <div class="modal-content">
@@ -131,7 +132,59 @@
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>
+        
+        <!-- Modal Editar Producto -->
+        <div id="editProductModal" class="modal w-50 my-auto">
+			<!-- Contenido del modal -->
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<form id="formProductosEditar">
+					<div class="modal-body" id="bodyModificaModal">
+						<div class="form-group">
+							<label for="nombre">Producto</label>
+							<input
+								type="text"
+								class="form-control"
+								id="nombreEditar"
+								value=""
+								autocomplete="off"
+							/>
+						</div>
+						
+						<div class="form-row">
+							<div class="col">
+								<label for="precio">Precio</label>
+								<input
+									type="number"
+									class="form-control"
+									id="precioEditar"
+									min="0"
+									autocomplete="off"
+								/>
+							</div>
+							<div class="col">
+								<label>descripcion</label>
+								<input
+									type="text"
+									class="form-control"
+									id="descripcionEditar"
+									value="0"
+									min="0"
+									autocomplete="off"
+								/>
+							</div>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">
+							Cancelar
+						</button>
+						<button type="submit" class="btn btn-primary">Guardar</button>
+					</div>
+				</form>
+			</div>
+		</div>
  
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="/js/admin.js"></script>
